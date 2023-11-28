@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Connect 4</title>
+    <link rel="stylesheet" href="styles/connect4.css">
+</head>
+<body>
+    <h1>Connect 4</h1>
+    <div id="board"></div>
+    <h2 id="winner"></h2>
+    <div class="con2">
+        <h2 id="turn-red" class="red-flicker">Red's Turn</h2>
+        <h2 id="turn-blue">Blue's Turn</h2>
+    </div>
+    <br>
+    <div id="container">
+        <a class="button" href="index.html" style="--color: lime;">
+            Home
+        </a>
+        <a class="button" href="#" style="--color: red;" onclick="window.location.reload()">
+            Reset
+        </a>
+    </div>
+</body>
+<script src="scripts/connect4.js"></script>
+</html>
