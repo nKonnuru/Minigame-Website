@@ -1,11 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const words = ['example', 'challenge', 'scramble', 'javascript', 'coding', 'algorithm', 'function', 'variable', 'object', 'array', 'syntax', 'loop', 'conditional', 'framework', 'library']; 
+    const words = [
+        'example', 'challenge', 'scramble', 'javascript', 'coding', 'algorithm', 'function',
+        'variable', 'object', 'array', 'syntax', 'loop', 'conditional', 'framework', 'library',
+        'expression', 'development', 'runtime', 'parameter', 'iteration', 'recursion', 'asynchronous',
+        'callback', 'prototype', 'inheritance', 'encapsulation', 'polymorphism', 'abstraction',
+        'constructor', 'destructor', 'interface', 'optimization', 'debugging', 'compilation'
+    ]; 
     let currentWord = '';
     let score = 0;
     let timeLeft = 30; 
 
     function scrambleWord(word) {
-        return word.split('').sort(() => 0.5 - Math.random()).join('');
+        const scrambledArray = word.split('');
+        for (let i = scrambledArray.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            [scrambledArray[i], scrambledArray[j]] = [scrambledArray[j], scrambledArray[i]]; // Swap elements
+        }
+        return scrambledArray.join('');
     }
 
     function setNewWord() {
