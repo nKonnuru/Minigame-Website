@@ -4,9 +4,14 @@ const box = 20;
 const canvasSize = 400;
 let snake = [{ x: 9 * box, y: 10 * box }];
 let food = generateFood();
+let specialFood = {
+    x: Math.floor(Math.random() * (canvasSize / box)) * box,
+    y: Math.floor(Math.random() * (canvasSize / box)) * box,
+    active: false
+};
 let score = 0;
 let d;
-let gameSpeed = 10; // Frames per second
+let gameSpeed = 10;
 let gamePaused = false;
 
 document.addEventListener('keydown', direction);
@@ -44,8 +49,20 @@ function update() {
         food = generateFood();
         updateHighScore();
         adjustGameSpeed();
+    } else if (specialFood.active && snakeX === specialFood.x && snakeY === specialFood.y) {
+        score += 5;
+        specialFood.active = false;
+        food = generateFood();
     } else {
         snake.pop();
+    }
+
+    if (Math.random() < 0.05 && !specialFood.active) {
+        specialFood = {
+            x: Math.floor(Math.random() * (canvasSize / box)) * box,
+            y: Math.floor(Math.random() * (canvasSize / box)) * box,
+            active: true
+        };
     }
 
     let newHead = { x: snakeX, y: snakeY };
@@ -68,6 +85,11 @@ function draw() {
 
     ctx.fillStyle = 'red';
     ctx.fillRect(food.x, food.y, box, box);
+
+    if (specialFood.active) {
+        ctx.fillStyle = 'blue';  // Special food is blue
+        ctx.fillRect(specialFood.x, specialFood.y, box, box);
+    }
 }
 
 function direction(event) {
