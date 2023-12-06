@@ -10,12 +10,12 @@
     <div class="container">
         <h1>Snake</h1>
         <div class="score" id="score">Score: 0</div>
+        <div class="high-score" id="high-score">High Score: 0</div> <!-- High score display -->
         <canvas id="gameCanvas" width="400" height="400"></canvas>
-        <br>
-        <br>
         <div class="button-container">
             <a class="button" href="./index.html" style="--color: lime;">Home</a>
             <a class="button" onclick="location.reload()" style="--color: red;">Reset</a>
+            <button class="button" id="pause-button" style="--color: yellow;">Pause</button> <!-- Pause button -->
         </div>
     </div>
     <script src="scripts/snake.js"></script>

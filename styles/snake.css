@@ -15,12 +15,11 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    font-family: 'Poppins', sans-serif;
 }
 
 .container {
     position: relative;
-    width: 400px; 
+    width: 420px; /* Adjusted to accommodate the canvas border */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -32,23 +31,15 @@ h1 {
 }
 
 #gameCanvas {
-    border: 10px solid #27282c; 
+    border: 10px solid #757781; 
     box-shadow: 0 0 15px #00ff00; 
 }
 
-.score {
+.score, .high-score {
     font-size: 1.5rem;
     color: #fff;
-    margin: 20px 0;
+    margin: 10px 0;
     text-shadow: 0 0 7px #00ff00, 0 0 10px #00ff00, 0 0 21px #00ff00;
-}
-
-.container {
-    position: relative;
-    width: 400px; 
-    display: flex;
-    flex-direction: column;
-    align-items: center;
 }
 
 .button {
@@ -95,4 +86,4 @@ h1 {
     transform: scale(1);
     transition-delay: 0.5s;
     box-shadow: 0 0 5px #fff, 0 0 10px #fff; 
-};
+}
